@@ -1,0 +1,35 @@
+[package]
+name = "nebula-federated"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Federated learning protocol implementation for Nebula"
+keywords = ["federated-learning", "machine-learning", "distributed-systems", "privacy"]
+categories = ["algorithms", "cryptography", "science"]
+
+[dependencies]
+# Workspace dependencies
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+async-trait.workspace = true
+
+# Numerical computing
+ndarray = { version = "0.15", features = ["serde"] }
+rand = "0.8"
+rand_distr = "0.4"
+rand_chacha = "0.3"
+
+# Cryptography for secure aggregation
+sha2 = "0.10"
+hex = "0.4"
+
+# Logging
+tracing = "0.1"
+
+[dev-dependencies]
+tokio-test = "0.4"
