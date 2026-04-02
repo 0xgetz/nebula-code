@@ -1,0 +1,14 @@
+{
+  "name": "@nebula-code/cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nebula Code CLI - Command-line interface for Nebula Code",
+  "scripts": {
+    "build": "cargo build --release",
+    "dev": "cargo watch -x run",
+    "test": "cargo test"
+  },
+  "devDependencies": {
+    "cargo-watch": "^8.0.0"
+  }
+}

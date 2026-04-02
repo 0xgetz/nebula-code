@@ -1,0 +1,25 @@
+[package]
+name = "nebula-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Nebula Code CLI - AI coding agent with federated learning"
+
+[dependencies]
+clap = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+# Local crates
+nebula-agents = { path = "../../crates/nebula-agents" }
+nebula-skills = { path = "../../crates/nebula-skills" }
+nebula-models = { path = "../../crates/nebula-models" }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }

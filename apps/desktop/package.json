@@ -1,0 +1,23 @@
+{
+  "name": "@nebula-code/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nebula Code Desktop Application",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tsc && tauri build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}
