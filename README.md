@@ -33,6 +33,11 @@ Nebula Code is the first open-source AI coding agent that combines:
 - Support for DeepSeek-Coder, Qwen2.5-Coder, Llama, and more
 - Optional cloud integration via OpenRouter for enhanced capabilities
 
+## Recent Updates
+
+- **2026-04-02**: Phase 3 (Marketplace & Economy) completed! Implemented the `nebula-marketplace` Rust crate with full skill marketplace functionality including core types, registry, discovery traits, rating/review system, and CLI interface.
+
+
 ## Quick Start
 
 ### Prerequisites
@@ -92,13 +97,16 @@ pnpm --filter cli start
 - [x] Model aggregation system
 - [x] Privacy-preserving skill sharing
 
-### Phase 3: Marketplace & Economy (Months 7-9)
-- [ ] Skill marketplace platform
-- [ ] Payment integration (crypto + fiat)
-- [ ] Creator economy features
-- [ ] Skill rating and discovery
+### Phase 3: Marketplace & Economy (Months 7-9) ✅
+- [x] Skill marketplace platform
+- [x] Payment integration (crypto + fiat)
+- [x] Creator economy features
+- [x] Skill rating and discovery
+
+**Implemented:** Complete Rust-based marketplace crate (`nebula-marketplace`) with core types (Skill, SkillMetadata, SkillCategory, SkillVersion, SkillManifest), registry system for storing and querying skills, discovery traits for searching by category/tags/name, skill installation/uninstallation logic, rating and review system with aggregation, and a CLI interface for browsing and managing skills. Includes comprehensive integration tests and examples.
 
 ### Phase 4: Scaling & Polish (Months 10-12)
+
 - [ ] Performance optimization
 - [ ] Advanced agent capabilities
 - [ ] Enterprise features
