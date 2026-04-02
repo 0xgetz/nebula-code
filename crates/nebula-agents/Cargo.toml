@@ -1,20 +1,17 @@
 [package]
 name = "nebula-agents"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-authors.workspace = true
-repository.workspace = true
-homepage.workspace = true
-description = "Multi-agent orchestration system for Nebula Code"
+version = "0.1.0"
+edition = "2021"
+description = "Core agent types and communication protocol for Nebula"
+license = "MIT"
 
 [dependencies]
-tokio = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
-thiserror = { workspace = true }
-anyhow = { workspace = true }
-async-trait = { workspace = true }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+thiserror = "1.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+async-trait = "0.1"
 
 [dev-dependencies]
-pretty_assertions = { workspace = true }
+tokio-test = "0.4"

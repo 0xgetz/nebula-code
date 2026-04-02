@@ -1,42 +1,18 @@
-//! Nebula Agents - Multi-agent orchestration system
+//! Core agent types and communication protocol for Nebula.
 //!
-//! This crate provides the core agent framework for Nebula Code,
-//! including specialized agents for different aspects of software development.
+//! This crate provides the foundational types and traits for building
+//! multi-agent systems within the Nebula framework.
 
-mod agent;
-mod architect;
-mod coder;
-mod tester;
-mod reviewer;
-mod deployer;
-mod orchestrator;
+pub mod communication;
+pub mod protocol;
+pub mod registry;
+pub mod types;
+pub mod orchestration;
 
-pub use agent::{Agent, AgentError, AgentResult};
-pub use architect::ArchitectAgent;
-pub use coder::CoderAgent;
-pub use tester::TesterAgent;
-pub use reviewer::ReviewerAgent;
-pub use deployer::DeployerAgent;
-pub use orchestrator::AgentOrchestrator;
-
-/// Agent types available in Nebula Code
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum AgentType {
-    Architect,
-    Coder,
-    Tester,
-    Reviewer,
-    Deployer,
-}
-
-impl std::fmt::Display for AgentType {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            AgentType::Architect => write!(f, "Architect"),
-            AgentType::Coder => write!(f, "Coder"),
-            AgentType::Tester => write!(f, "Tester"),
-            AgentType::Reviewer => write!(f, "Reviewer"),
-            AgentType::Deployer => write!(f, "Deployer"),
-        }
-    }
-}
+pub use communication::{Channel, MessageQueue, Subscriber};
+pub use protocol::{CommunicationProtocol, Message, MessageType};
+pub use registry::AgentRegistry;
+pub use types::{Agent, AgentCapability, AgentId, AgentMetadata, AgentState};
+pub use orchestration::{
+    Orchestrator, Task, TaskId, TaskScheduler, TaskStatus, Priority, OrchestrationError,
+};
