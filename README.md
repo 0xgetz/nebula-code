@@ -27,6 +27,7 @@ Nebula Code is the first open-source AI coding agent that combines:
 - Create reusable skill cards for common patterns and workflows
 - Monetize your expertise with one-time purchases
 - Discover and install skills from the community
+- Advanced execution engine with dependency resolution and persistence
 
 ### Local & Cloud LLM Support
 - Run completely offline with local models (Ollama)
@@ -35,8 +36,7 @@ Nebula Code is the first open-source AI coding agent that combines:
 
 ## Recent Updates
 
-- **2026-04-02**: Phase 3 (Marketplace & Economy) completed! Implemented the `nebula-marketplace` Rust crate with full skill marketplace functionality including core types, registry, discovery traits, rating/review system, and CLI interface.
-
+- **2026-04-02**: Phase 3 (Marketplace & Economy) completed! Implemented advanced features including skill execution engine, dependency resolution system, and persistence layer in the `nebula-marketplace` Rust crate.
 
 ## Quick Start
 
@@ -79,6 +79,7 @@ pnpm --filter cli start
 - [Skill Cards](./docs/skills.md)
 - [Federated Learning](./docs/federated-learning.md)
 - [API Reference](./docs/api-reference.md)
+- [Marketplace Crate](./crates/nebula-marketplace/README.md)
 
 ## Roadmap
 
@@ -103,7 +104,21 @@ pnpm --filter cli start
 - [x] Creator economy features
 - [x] Skill rating and discovery
 
-**Implemented:** Complete Rust-based marketplace crate (`nebula-marketplace`) with core types (Skill, SkillMetadata, SkillCategory, SkillVersion, SkillManifest), registry system for storing and querying skills, discovery traits for searching by category/tags/name, skill installation/uninstallation logic, rating and review system with aggregation, and a CLI interface for browsing and managing skills. Includes comprehensive integration tests and examples.
+**Implemented:** Complete Rust-based marketplace crate (`nebula-marketplace`) with:
+
+**Core Features:**
+- Core types (Skill, SkillMetadata, SkillCategory, SkillVersion, SkillManifest)
+- Registry system for storing and querying skills
+- Discovery traits for searching by category/tags/name
+- Skill installation/uninstallation logic
+- Rating and review system with aggregation
+- CLI interface for browsing and managing skills
+
+**Advanced Features (Phase 3.5):**
+- **Skill Execution Engine**: Generic executor framework with `SkillExecutor` trait, `ExecutionContext`, `ExecutorRegistry`, and comprehensive error handling
+- **Dependency Resolution**: Full dependency graph with cycle detection, version conflict resolution, topological sorting, and transitive dependency handling
+- **Persistence Layer**: Trait-based storage with file-based JSON backend, in-memory indexing, and sync operations
+- Comprehensive test coverage (100+ tests) and integration examples
 
 ### Phase 4: Scaling & Polish (Months 10-12)
 
