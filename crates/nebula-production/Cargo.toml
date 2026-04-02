@@ -1,0 +1,64 @@
+[package]
+name = "nebula-production"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Production-ready deployment infrastructure for Nebula"
+
+[dependencies]
+# Async runtime
+tokio.workspace = true
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Configuration
+config = "0.14"
+dotenvy = "0.15"
+
+# Logging and tracing
+tracing.workspace = true
+tracing-subscriber = { workspace = true, features = ["json"] }
+
+# Metrics
+metrics.workspace = true
+metrics-exporter-prometheus.workspace = true
+prometheus-client.workspace = true
+
+# HTTP server
+axum.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+hyper.workspace = true
+
+# Error handling
+thiserror.workspace = true
+anyhow.workspace = true
+
+# Utilities
+once_cell.workspace = true
+chrono.workspace = true
+async-trait.workspace = true
+rand.workspace = true
+uuid = { version = "1", features = ["v4"] }
+
+# Security and cryptography
+jsonwebtoken = "9"
+ring = "0.17"
+base64 = "0.21"
+argon2 = "0.5"
+
+# TLS
+rustls = "0.21"
+rustls-pemfile = "1"
+rustls-native-certs = "0.6"
+tokio-rustls = "0.24"
+
+# Time for token expiration
+time = { version = "0.3", features = ["serde"] }
+
+[dev-dependencies]
+pretty_assertions.workspace = true
+tokio.workspace = true
+tempfile = "3"
