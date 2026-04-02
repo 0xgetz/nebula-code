@@ -31,7 +31,7 @@
 //!     let config = ProductionConfig::from_env()?;
 //!
 //!     // Initialize logging
-//!     init_logging(&config.logging.level, &config.logging.format);
+//!     init_logging(&config.logging)?;
 //!
 //!     // Create health checker
 //!     let health_checker = Arc::new(HealthChecker::new());
@@ -43,14 +43,9 @@
 //!     let security = SecurityConfig::production();
 //!
 //!     // Build and start the server
-//!     let server = Server::builder()
-//!         .config(config.clone())
-//!         .health_checker(health_checker)
-//!         .metrics(metrics)
-//!         .security(security)
-//!         .build()?;
+//!     let server = Server::new(&config)?;
 //!
-//!     server.start().await?;
+//!     server.run().await?;
 //!     Ok(())
 //! }
 //! ```

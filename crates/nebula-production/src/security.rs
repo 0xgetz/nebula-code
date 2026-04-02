@@ -74,7 +74,7 @@
 //! # Request Validation
 //!
 //! ```rust
-//! use nebula_production::{RequestValidator, ValidationRule};
+//! use nebula_production::security::{RequestValidator, ValidationRule};
 //!
 //! let validator = RequestValidator::new()
 //!     .add_rule(ValidationRule::new("username")
@@ -99,7 +99,7 @@
 //! # Input Sanitization
 //!
 //! ```rust
-//! use nebula_production::InputSanitizer;
+//! use nebula_production::security::InputSanitizer;
 //!
 //! let sanitizer = InputSanitizer::new()
 //!     .strip_html_tags(true)
@@ -107,9 +107,9 @@
 //!     .check_xss(true)
 //!     .max_input_length(10000);
 //!
-//! // Sanitize user input
-//! let clean = sanitizer.sanitize("<script>alert('xss')</script>Hello")
-//!     .unwrap(); // Returns error due to XSS detection
+//! // Sanitize user input - XSS input returns an error
+//! let result = sanitizer.sanitize("<script>alert('xss')</script>Hello");
+//! assert!(result.is_err()); // Returns error due to XSS detection
 //!
 //! // Safe input passes through
 //! let clean = sanitizer.sanitize("Hello, World!").unwrap();
@@ -119,7 +119,7 @@
 //! # CSRF Protection
 //!
 //! ```rust
-//! use nebula_production::CsrfManager;
+//! use nebula_production::security::CsrfManager;
 //!
 //! let manager = CsrfManager::new(3600); // 1 hour expiration
 //!
@@ -136,7 +136,7 @@
 //! # IP Access Control
 //!
 //! ```rust
-//! use nebula_production::IpAccessControl;
+//! use nebula_production::security::IpAccessControl;
 //! use std::net::IpAddr;
 //!
 //! // Allowlist mode - only specified IPs allowed
