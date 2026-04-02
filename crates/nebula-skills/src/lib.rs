@@ -3,6 +3,7 @@
 //! This crate provides the data models and management system for skill cards,
 //! which are reusable coding patterns and workflows that can be shared and sold.
 
+use serde::{Serialize, Deserialize};
 mod skill;
 mod store;
 mod marketplace;
@@ -12,7 +13,7 @@ pub use store::{SkillStore, SkillStoreError};
 pub use marketplace::{Marketplace, MarketplaceError};
 
 /// Skill version format
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SkillVersion {
     pub major: u32,
     pub minor: u32,
